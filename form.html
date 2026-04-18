@@ -14,14 +14,22 @@ body{
  flex-direction:column;
  height:100vh;
  overflow:hidden;
+ text-align:center;
 }
 
-/* HEADER */
+/* ANIMATION */
+body{
+ animation:openApp 0.4s ease;
+}
+@keyframes openApp{
+ from{transform:scale(0.9); opacity:0;}
+ to{transform:scale(1); opacity:1;}
+}
+
 .top{
  padding:10px;
 }
 
-/* CONTENT */
 .container{
  flex:1;
  display:flex;
@@ -30,11 +38,58 @@ body{
  align-items:center;
 }
 
-/* INPUT */
 input{
  margin:8px;
  padding:10px;
  width:220px;
+ background:black;
+ border:1px solid #00eaff;
+ color:#00eaff;
+}
+
+button{
+ padding:10px;
+ background:black;
+ border:1px solid #00eaff;
+ color:#00eaff;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="openSound" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"></audio>
+
+<div class="top">
+<button onclick="go()">⬅ Back</button>
+<h3>Student Form</h3>
+</div>
+
+<div class="container">
+
+<form action="https://formsubmit.co/svdiitcomp3@gmail.com" method="POST">
+<input name="Name" placeholder="Name" required>
+<input name="Class" placeholder="Class">
+<input name="Age" placeholder="Age">
+<input name="School" placeholder="School">
+<input name="Phone" placeholder="Phone">
+<input name="Email" type="email" placeholder="Email">
+<input type="hidden" name="_captcha" value="false">
+<button type="submit">Submit</button>
+</form>
+
+</div>
+
+<script>
+document.getElementById("openSound").play();
+
+function go(){
+ window.location="home.html";
+}
+</script>
+
+</body>
+</html> width:220px;
  background:black;
  border:1px solid #00eaff;
  color:#00eaff;
