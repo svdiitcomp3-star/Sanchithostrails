@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lock</title>
+<title>Sanchith OS</title>
 
 <style>
 body{
@@ -15,22 +15,22 @@ body{
  justify-content:center;
  align-items:center;
  height:100vh;
- overflow:hidden;
 }
 
-/* CLOCK */
+/* clock */
 #time{
  font-size:60px;
+ margin-bottom:10px;
 }
 
-/* SWIPE BAR */
+/* swipe */
 .swipe{
  width:80%;
  height:50px;
  border:1px solid #00eaff;
  border-radius:30px;
  position:relative;
- overflow:hidden;
+ margin:20px 0;
 }
 
 .slider{
@@ -43,262 +43,66 @@ body{
  top:0;
 }
 
-/* LOGIN */
+/* inputs */
 input{
  display:block;
- margin:10px;
+ margin:8px;
  padding:10px;
  width:200px;
  background:black;
  border:1px solid #00eaff;
  color:#00eaff;
 }
-</style>
-</head>
-
-<body>
-
-<div id="time"></div>
-
-<div class="swipe">
-  <div class="slider" id="slider"></div>
-</div>
-
-<input id="user" placeholder="Username">
-<input id="pass" type="password" placeholder="Password">
-
-<button onclick="login()">Unlock</button>
-
-<script>
-// clock
-setInterval(()=>{
- let d=new Date();
- time.innerHTML=d.getHours()+":"+("0"+d.getMinutes()).slice(-2);
-},1000);
-
-// SAFE SWIPE
-let slider=document.getElementById("slider");
-let startX=0;
-
-slider.addEventListener("touchstart",e=>{
- startX=e.touches[0].clientX;
-});
-
-slider.addEventListener("touchmove",e=>{
- let move=e.touches[0].clientX - startX;
- if(move>0 && move<200){
-   slider.style.left=move+"px";
- }
- if(move>150){
-   unlock();
- }
-});
-
-// unlock
-function unlock(){
- window.location="home.html";
-}
-
-// login
-function login(){
- if(user.value==="admin" && pass.value==="AI123"){
-   unlock();
- } else alert("Wrong");
-}
-</script>
-
-</body>
-</html> width:50px;
- height:50px;
- background:#00eaff;
- border-radius:50%;
- position:absolute;
- left:0;
- top:0;
-}
-
-/* LOGIN */
-input{
- display:block;
- margin:10px;
- padding:10px;
- width:200px;
- background:black;
- border:1px solid #00eaff;
- color:#00eaff;
-}
-</style>
-</head>
-
-<body>
-
-<div id="time"></div>
-
-<div class="swipe">
-  <div class="slider" id="slider"></div>
-</div>
-
-<input id="user" placeholder="Username">
-<input id="pass" type="password" placeholder="Password">
-
-<button onclick="login()">Unlock</button>
-
-<script>
-// clock
-setInterval(()=>{
- let d=new Date();
- time.innerHTML=d.getHours()+":"+("0"+d.getMinutes()).slice(-2);
-},1000);
-
-// SAFE SWIPE
-let slider=document.getElementById("slider");
-let startX=0;
-
-slider.addEventListener("touchstart",e=>{
- startX=e.touches[0].clientX;
-});
-
-slider.addEventListener("touchmove",e=>{
- let move=e.touches[0].clientX - startX;
- if(move>0 && move<200){
-   slider.style.left=move+"px";
- }
- if(move>150){
-   unlock();
- }
-});
-
-// unlock
-function unlock(){
- window.location="home.html";
-}
-
-// login
-function login(){
- if(user.value==="admin" && pass.value==="AI123"){
-   unlock();
- } else alert("Wrong");
-}
-</script>
-
-</body>
-</html>
-/* swipe */
-.swipe{
-  width:80%;
-  height:50px;
-  border:1px solid #00eaff;
-  border-radius:30px;
-  margin-top:20px;
-  position:relative;
-  overflow:hidden;
-  z-index:1;
-}
-
-.slider{
-  width:50px;
-  height:50px;
-  background:#00eaff;
-  border-radius:50%;
-  position:absolute;
-  left:0;
-  cursor:pointer;
-}
-
-/* fingerprint */
-.fingerprint{
-  margin-top:20px;
-  font-size:40px;
-  cursor:pointer;
-  z-index:1;
-}
-
-/* login */
-.box{
-  margin-top:20px;
-  z-index:1;
-}
-
-input{
-  display:block;
-  margin:8px auto;
-  padding:10px;
-  width:200px;
-  background:black;
-  border:1px solid #00eaff;
-  color:#00eaff;
-}
-
 button{
-  padding:10px 20px;
-  background:black;
-  border:1px solid #00eaff;
-  color:#00eaff;
+ padding:10px;
+ background:black;
+ border:1px solid #00eaff;
+ color:#00eaff;
 }
 </style>
 </head>
 
 <body>
 
-<div class="overlay"></div>
-
-<div class="clock" id="time"></div>
-<div class="date" id="date"></div>
+<div id="time"></div>
 
 <div class="swipe">
   <div class="slider" id="slider"></div>
 </div>
 
-<div class="fingerprint" onclick="unlock()">🔓</div>
+<input id="user" placeholder="Username">
+<input id="pass" type="password" placeholder="Password">
 
-<div class="box">
-  <input id="user" placeholder="Username">
-  <input id="pass" type="password" placeholder="Password">
-  <button onclick="login()">Unlock</button>
-</div>
-
-<audio id="unlockSound" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"></audio>
+<button onclick="login()">Unlock</button>
 
 <script>
-function updateTime(){
+setInterval(()=>{
  let d=new Date();
- let h=d.getHours();
- let m=d.getMinutes();
- let s=d.getSeconds();
- if(m<10)m="0"+m;
- if(s<10)s="0"+s;
- time.innerHTML=h+":"+m+":"+s;
- date.innerHTML=d.toDateString();
-}
-setInterval(updateTime,1000);
+ time.innerHTML=d.getHours()+":"+("0"+d.getMinutes()).slice(-2);
+},1000);
 
-// swipe
+/* swipe */
 let slider=document.getElementById("slider");
-let drag=false;
+let dragging=false;
 
-slider.onmousedown=()=>drag=true;
-document.onmouseup=()=>drag=false;
+slider.addEventListener("mousedown",()=>dragging=true);
+document.addEventListener("mouseup",()=>dragging=false);
 
-document.onmousemove=(e)=>{
- if(drag){
-   slider.style.left=e.clientX+"px";
-   if(e.clientX > window.innerWidth*0.7){
-     unlock();
-   }
+document.addEventListener("mousemove",(e)=>{
+ if(dragging){
+   let x=e.clientX;
+   if(x>150) unlock();
  }
-};
+});
 
 function unlock(){
- unlockSound.play();
- setTimeout(()=>window.location="home.html",500);
+ window.location="home.html";
 }
 
 function login(){
  if(user.value==="admin" && pass.value==="AI123"){
    unlock();
- } else {
-   alert("Wrong");
- }
+ } else alert("Wrong password");
 }
 </script>
 
