@@ -12,29 +12,52 @@ body{
  font-family:Arial;
  display:flex;
  flex-direction:column;
- height:100vh;
- overflow:hidden;
-}
-
-/* HEADER */
-.top{
- padding:10px;
-}
-
-/* CONTENT */
-.container{
- flex:1;
- display:flex;
- flex-direction:column;
- justify-content:center;
  align-items:center;
+ justify-content:center;
+ height:100vh;
 }
 
-/* INPUT */
 input{
  margin:8px;
  padding:10px;
  width:220px;
+ background:black;
+ border:1px solid #00eaff;
+ color:#00eaff;
+}
+
+button{
+ padding:10px;
+ background:black;
+ border:1px solid #00eaff;
+ color:#00eaff;
+}
+</style>
+</head>
+
+<body>
+
+<button onclick="go()">⬅ Back</button>
+
+<h2>Form</h2>
+
+<form action="https://formsubmit.co/svdiitcomp3@gmail.com" method="POST">
+<input name="Name" placeholder="Name" required>
+<input name="Class" placeholder="Class">
+<input name="Age" placeholder="Age">
+<input name="School" placeholder="School">
+<input name="Phone" placeholder="Phone">
+<input name="Email" type="email" placeholder="Email">
+<input type="hidden" name="_captcha" value="false">
+<button type="submit">Submit</button>
+</form>
+
+<script>
+function go(){window.location="home.html";}
+</script>
+
+</body>
+</html> width:220px;
  background:black;
  border:1px solid #00eaff;
  color:#00eaff;
