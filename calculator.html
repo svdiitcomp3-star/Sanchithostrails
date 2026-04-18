@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculator</title>
+
+<style>
+body {
+  background:black;
+  color:#00eaff;
+  text-align:center;
+  font-family:Arial;
+}
+
+input {
+  width:80%;
+  height:50px;
+  margin:20px;
+  background:black;
+  border:1px solid #00eaff;
+  color:#00eaff;
+  font-size:20px;
+  box-shadow:0 0 10px #00eaff;
+}
+
+button {
+  width:60px;
+  height:60px;
+  margin:5px;
+  background:black;
+  border:1px solid #00eaff;
+  color:#00eaff;
+  box-shadow:0 0 10px #00eaff;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Calculator</h2>
+
+<input id="d" readonly>
+
+<script>
+let exp="";
+function p(v){
+ exp+=v;
+ d.value=exp;
+}
+function c(){
+ d.value=eval(exp);
+ exp="";
+}
+function clr(){
+ exp="";
+ d.value="";
+}
+</script>
+
+<div>
+<button onclick="p('7')">7</button>
+<button onclick="p('8')">8</button>
+<button onclick="p('9')">9</button>
+<button onclick="p('/')">/</button><br>
+
+<button onclick="p('4')">4</button>
+<button onclick="p('5')">5</button>
+<button onclick="p('6')">6</button>
+<button onclick="p('*')">*</button><br>
+
+<button onclick="p('1')">1</button>
+<button onclick="p('2')">2</button>
+<button onclick="p('3')">3</button>
+<button onclick="p('-')">-</button><br>
+
+<button onclick="p('0')">0</button>
+<button onclick="c()">=</button>
+<button onclick="clr()">C</button>
+<button onclick="p('+')">+</button>
+</div>
+
+</body>
+</html>
