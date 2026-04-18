@@ -10,21 +10,13 @@ body{
  background:black;
  color:#00eaff;
  font-family:Arial;
- display:flex;
- flex-direction:column;
- height:100vh;
- overflow:hidden;
  text-align:center;
-}
-
-.top{
- padding:10px;
 }
 
 input{
  width:90%;
  height:60px;
- margin:10px auto;
+ margin:10px;
  font-size:22px;
  background:black;
  border:1px solid #00eaff;
@@ -35,6 +27,75 @@ input{
 .grid{
  display:grid;
  grid-template-columns:repeat(4,1fr);
+ gap:10px;
+ padding:10px;
+}
+
+button{
+ height:60px;
+ background:black;
+ border:1px solid #00eaff;
+ color:#00eaff;
+}
+</style>
+</head>
+
+<body>
+
+<button onclick="go()">⬅ Back</button>
+
+<input id="display" readonly>
+
+<div class="grid">
+<button onclick="press('7')">7</button>
+<button onclick="press('8')">8</button>
+<button onclick="press('9')">9</button>
+<button onclick="press('/')">/</button>
+
+<button onclick="press('4')">4</button>
+<button onclick="press('5')">5</button>
+<button onclick="press('6')">6</button>
+<button onclick="press('*')">*</button>
+
+<button onclick="press('1')">1</button>
+<button onclick="press('2')">2</button>
+<button onclick="press('3')">3</button>
+<button onclick="press('-')">-</button>
+
+<button onclick="press('0')">0</button>
+<button onclick="calc()">=</button>
+<button onclick="clearAll()">C</button>
+<button onclick="press('+')">+</button>
+</div>
+
+<script>
+let exp="";
+
+function press(v){
+ exp+=v;
+ display.value=exp;
+}
+
+function calc(){
+ try{
+   display.value=eval(exp);
+   exp="";
+ }catch{
+   display.value="Error";
+   exp="";
+ }
+}
+
+function clearAll(){
+ exp="";
+ display.value="";
+}
+
+function go(){window.location="home.html";}
+</script>
+
+</body>
+</html> grid-template-columns:repeat(4,1fr);
  gap:10px;
  padding:10px;
 }
