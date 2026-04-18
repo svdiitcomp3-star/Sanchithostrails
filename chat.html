@@ -15,10 +15,6 @@ body{
  height:100vh;
 }
 
-.top{
- padding:10px;
-}
-
 #chat{
  flex:1;
  overflow:auto;
@@ -35,6 +31,56 @@ input{
  flex:1;
  padding:10px;
  background:black;
+ border:1px solid #00eaff;
+ color:#00eaff;
+}
+
+button{
+ padding:10px;
+ background:black;
+ border:1px solid #00eaff;
+ color:#00eaff;
+}
+</style>
+</head>
+
+<body>
+
+<button onclick="go()">⬅ Back</button>
+
+<div id="chat"></div>
+
+<div class="bottom">
+<input id="msg">
+<button onclick="send()">Send</button>
+</div>
+
+<script>
+function go(){window.location="home.html";}
+
+function send(){
+ let m=msg.value.trim();
+ if(m==="") return;
+
+ chat.innerHTML += "<p><b>You:</b> "+m+"</p>";
+
+ let r="🤖 Sanchith AI";
+
+ if(m.includes("hi")) r="Hello 👋";
+ else if(m.includes("time")) r=new Date().toLocaleTimeString();
+ else if(m.match(/[0-9+\-*/]/)){
+   try{r=eval(m);}catch{r="Error";}
+ }
+
+ chat.innerHTML += "<p><b>AI:</b> "+r+"</p>";
+
+ msg.value="";
+ chat.scrollTop=chat.scrollHeight;
+}
+</script>
+
+</body>
+</html> background:black;
  border:1px solid #00eaff;
  color:#00eaff;
 }
