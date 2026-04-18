@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chat</title>
+<title>Chat AI</title>
 
 <style>
 body{
@@ -13,13 +13,23 @@ body{
  display:flex;
  flex-direction:column;
  height:100vh;
+ overflow:hidden;
+}
+
+/* OPEN ANIMATION */
+body{
+ animation:openApp 0.4s ease;
+}
+@keyframes openApp{
+ from{transform:scale(0.9); opacity:0;}
+ to{transform:scale(1); opacity:1;}
 }
 
 .top{
  padding:10px;
 }
 
-#chat{
+#chatBox{
  flex:1;
  overflow:auto;
  border-top:1px solid #00eaff;
@@ -31,10 +41,79 @@ body{
  display:flex;
 }
 
-input{
+#msg{
  flex:1;
  padding:10px;
  background:black;
+ border:1px solid #00eaff;
+ color:#00eaff;
+}
+
+button{
+ padding:10px;
+ background:black;
+ border:1px solid #00eaff;
+ color:#00eaff;
+}
+</style>
+</head>
+
+<body>
+
+<!-- sound -->
+<audio id="openSound" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"></audio>
+
+<div class="top">
+<button onclick="go()">⬅ Back</button>
+<h3>Chat AI</h3>
+</div>
+
+<div id="chatBox"></div>
+
+<div class="bottom">
+<input id="msg" placeholder="Type message...">
+<button onclick="sendMsg()">Send</button>
+</div>
+
+<script>
+document.getElementById("openSound").play();
+
+function go(){
+ window.location="home.html";
+}
+
+function sendMsg(){
+ let input = document.getElementById("msg");
+ let chat = document.getElementById("chatBox");
+
+ let text = input.value.trim();
+ if(text === "") return;
+
+ chat.innerHTML += "<p><b>You:</b> " + text + "</p>";
+
+ let reply = getReply(text.toLowerCase());
+
+ setTimeout(()=>{
+   chat.innerHTML += "<p><b>AI:</b> " + reply + "</p>";
+   chat.scrollTop = chat.scrollHeight;
+ },400);
+
+ input.value="";
+}
+
+function getReply(m){
+ if(m.includes("hi")) return "Hello 👋";
+ if(m.includes("time")) return new Date().toLocaleTimeString();
+ if(m.includes("name")) return "Sanchith AI 🤖";
+ if(m.match(/[0-9+\-*/]/)){
+   try { return eval(m); } catch { return "Error"; }
+ }
+ return "Tell me more 🤔";
+}
+</script>
+
+</body>
+</html> background:black;
  border:1px solid #00eaff;
  color:#00eaff;
 }
