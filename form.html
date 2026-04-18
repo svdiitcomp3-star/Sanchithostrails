@@ -2,39 +2,38 @@
 <html>
 <head>
 <title>Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-  background:black;
-  color:#00eaff;
-  font-family:Arial;
-  text-align:center;
-}
+body{background:black;color:#00eaff;text-align:center;font-family:Arial;}
+input{display:block;margin:10px auto;padding:10px;width:220px;background:black;border:1px solid #00eaff;color:#00eaff;}
+button{padding:10px;background:black;border:1px solid #00eaff;color:#00eaff;}
+</style>
+</head>
 
-form {
-  max-width:300px;
-  margin:auto;
-  display:flex;
-  flex-direction:column;
-}
+<body>
 
-input {
-  margin:10px;
-  padding:10px;
-  background:black;
-  border:1px solid #00eaff;
-  color:#00eaff;
-  border-radius:10px;
-  box-shadow:0 0 10px #00eaff;
-}
+<button onclick="go()">⬅ Back</button>
 
-button {
-  padding:10px;
-  background:black;
-  border:1px solid #00eaff;
-  color:#00eaff;
-  border-radius:10px;
-  box-shadow:0 0 10px #00eaff;
+<h2>Student Form</h2>
+
+<form action="https://formsubmit.co/svdiitcomp3@gmail.com" method="POST">
+<input name="Name" placeholder="Name" required>
+<input name="Class" placeholder="Class">
+<input name="Age" placeholder="Age">
+<input name="School" placeholder="School">
+<input name="Phone" placeholder="Phone">
+<input name="Email" type="email" placeholder="Email">
+<input type="hidden" name="_captcha" value="false">
+<button type="submit">Submit</button>
+</form>
+
+<script>
+function go(){window.location="home.html";}
+</script>
+
+</body>
+</html>  box-shadow:0 0 10px #00eaff;
 }
 </style>
 
