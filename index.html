@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sanchith OS</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial;
+  background: black;
+  color: #00eaff;
+  text-align:center;
+}
+
+.container {
+  margin-top:150px;
+}
+
+h1 {
+  text-shadow: 0 0 20px #00eaff;
+}
+
+input {
+  display:block;
+  margin:10px auto;
+  padding:12px;
+  width:200px;
+  background:black;
+  border:1px solid #00eaff;
+  color:#00eaff;
+  border-radius:10px;
+  outline:none;
+  box-shadow:0 0 10px #00eaff;
+}
+
+button {
+  padding:10px 20px;
+  background:black;
+  border:1px solid #00eaff;
+  color:#00eaff;
+  border-radius:10px;
+  cursor:pointer;
+  box-shadow:0 0 10px #00eaff;
+}
+
+button:hover {
+  background:#00eaff;
+  color:black;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+<h1>Sanchith OS 🔒</h1>
+
+<input id="user" placeholder="Username">
+<input id="pass" type="password" placeholder="Password">
+
+<button onclick="login()">Unlock</button>
+</div>
+
+<script>
+function login(){
+  let u = document.getElementById("user").value;
+  let p = document.getElementById("pass").value;
+
+  if(u==="admin" && p==="AI123"){
+    window.location="home.html";
+  } else {
+    alert("Access Denied");
+  }
+}
+</script>
+
+</body>
+</html>
