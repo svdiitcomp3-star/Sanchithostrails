@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form</title>
+
+<style>
+body {
+  background:black;
+  color:#00eaff;
+  font-family:Arial;
+  text-align:center;
+}
+
+form {
+  max-width:300px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+}
+
+input {
+  margin:10px;
+  padding:10px;
+  background:black;
+  border:1px solid #00eaff;
+  color:#00eaff;
+  border-radius:10px;
+  box-shadow:0 0 10px #00eaff;
+}
+
+button {
+  padding:10px;
+  background:black;
+  border:1px solid #00eaff;
+  color:#00eaff;
+  border-radius:10px;
+  box-shadow:0 0 10px #00eaff;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Student Details</h2>
+
+<form action="https://formsubmit.co/svdiitcomp3@gmail.com" method="POST">
+
+<input name="Name" placeholder="Name" required>
+<input name="Class" placeholder="Class" required>
+<input name="Age" placeholder="Age" required>
+<input name="School" placeholder="School" required>
+<input name="Phone" placeholder="Phone" required>
+<input name="Email" type="email" placeholder="Gmail" required>
+
+<input type="hidden" name="_captcha" value="false">
+
+<button type="submit">Submit</button>
+
+</form>
+
+</body>
+</html>
